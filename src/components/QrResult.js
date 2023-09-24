@@ -17,7 +17,7 @@ function QrResult() {
         setTimeout(() => { // setTimeout을 사용하여 3초 후에 데이터를 가져옴
             const fetchData = async () => {
                 try {
-                    const response = await axios.get(`/generate_essay/${qrCode}`);
+                    const response = await axios.get(`/api/generate_essay/${qrCode}`);
                     setUserId(response.data.user_id);
                     setName(response.data.name);
                     setEssay_title(response.data.essay_title);

@@ -24,7 +24,7 @@ function QrPage3() {
         const fetchData = async () => {
             if (qrCode) {
                 try {
-                    const response = await axios.get(`/get_data/${qrCode}`);
+                    const response = await axios.get(`/api/get_data/${qrCode}`);
                     
                     if (response.data) { 
                         setUserId(response.data.user_id || "");
@@ -47,7 +47,7 @@ function QrPage3() {
     
     const handleSubmit = async () => {
         try {
-            const response = await axios.post("/card/submit", {
+            const response = await axios.post("/api/card/submit", {
                 qr_code: qrCode,
                 keyword1: keyword1,
                 card_ans: card_ans

@@ -15,7 +15,7 @@ function QrPage2() {
         const fetchData = async () => {
             if(qrCode) {  // qrCode가 정의되어 있을 때만 요청을 보냅니다.
                 try {
-                    const response = await axios.get(`/get_data/${qrCode}`);
+                    const response = await axios.get(`/api/get_data/${qrCode}`);
                     setName(response.data.name);
                     setKeyword1(response.data.keyword1);
                     setUserId(response.data.user_id);
@@ -30,7 +30,7 @@ function QrPage2() {
     
     const handleSubmit = async () => {
         try {
-            const response = await axios.post("/keyword/submit", {
+            const response = await axios.post("/api/keyword/submit", {
                 qr_code: qrCode,
                 name: name,
                 keyword1: keyword1
