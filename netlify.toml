@@ -1,5 +1,5 @@
 [[redirects]]
-    form = “/*”
-    tp = “/index.html"
+    form = "/*"
+    tp = "/index.html"
     status = 200
     force = false
