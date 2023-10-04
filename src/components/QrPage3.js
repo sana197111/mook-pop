@@ -55,7 +55,7 @@ function QrPage3() {
             alert(response.data.message);
             
             // 요청이 성공하면 /Page3로 이동합니다.
-            navigate('/Page3');
+            navigate('/result');
         } catch (error) {
             console.error("Error submitting data", error);
         }

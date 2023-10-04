@@ -1,0 +1,17 @@
+.time-wrapper .time {
+    color: #d2d6d5;
+    font-size: 2rem; /* You may adjust the size as per your requirement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 
+.time-wrapper .time.up {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.time-wrapper .time.down {
+    opacity: 0;
+    transform: translateY(100%);
+} */

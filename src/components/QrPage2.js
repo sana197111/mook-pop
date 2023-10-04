@@ -37,7 +37,7 @@ function QrPage2() {
             });
             alert(response.data.message);
             // 요청이 성공하면 /Page2로 이동합니다.
-            navigate('/Page2');
+            navigate('/Page3');
         } catch (error) {
             console.error("Error submitting data", error);
         }
