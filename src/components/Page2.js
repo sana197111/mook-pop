@@ -1,19 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Page2() {
     return (
-        <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center justify-center">
-            <h1 className="text-2xl font-bold mb-2 text-center">이 페이지는 Page2입니다</h1>
-            <p className="text-gray-700 text-center mb-8">
-                당신을 가장 잘 표현하는 해시태그를 보여주세요.<br />
-                아래에 있는 QR코드 리더기에 종이를 보여주세요.
+        <div className="min-h-screen p-4 flex flex-col items-center justify-center" style={{backgroundColor: "#514d4c"}}>
+            <h3 className="mb-4 text-center text-2xl" style={{color: "#d2d6d5"}}>
+                Page 2.
+            </h3>
+            <h1 className="mb-4 text-center text-6xl" style={{color: "#d2d6d5"}}>
+                키워드
+            </h1>
+            <h5 className="mb-10 text-center text-xl" style={{color: "#d2d6d5"}}>
+                [ 單語 ]
+            </h5>
+            <p className="text-center mb-4" style={{color: "#d2d6d5"}}>
+            여정의 시작 전, 잠시 마음을 가다듬어보세요. <br/>
+            당신의 속 세상을 조용히 열어두고, 지난 일들을 마음의 눈으로 바라봅시다. <br/>
+            평온한 이 순간, 실패와 좌절의 경험을 잠시 안아보며, 스스로를 위로해봅시다.<br/><br/>
+            지금, 바로 이 순간, 깊고 고요한 숨을 들이마시며 <br/>
+            잔잔한 속삭임 속에서, 지난 일들의 소중한 교훈을 찾아보세요.<br/>
+            실패의 순간들에서 나타나는 키워드를 통해 <br/>
+            스스로의 이야기를 섬세하게 펼쳐보며, 새로운 시작을 꿈꾸어봅시다.<br/>
+            <br/>
+            #실패 <br/>
             </p>
-            {/* QR코드 리더기 UI 표현을 위한 예시 div. 실제 QR 리더기 코드로 교체해야 합니다. */}
-            <div className="border-2 border-gray-300 p-4 w-full max-w-xs rounded-md">
-                <div className="bg-gray-200 h-40 w-full rounded-md flex items-center justify-center">
-                    <span className="text-gray-500">QR 리더기 위치</span>
-                </div>
-            </div>
+            <Link to="/keyword">
+                <button className="mt-8 mb-8 px-6 py-2 border rounded" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
+                    키워드 입력하러가기
+                </button>
+            </Link>
         </div>
     );
 }

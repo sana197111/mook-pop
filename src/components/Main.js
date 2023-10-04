@@ -16,7 +16,7 @@ function Main() {
             <h5 className="mb-10 text-center text-xl" style={{color: "#d2d6d5"}}>
                 Page 1 공백 | Page 2 키워드 | Page 3 문장 | Page 4 스토리
             </h5>
-            <Link to="/page1">
+            <Link to="/author">
                 <button className="mt-8 mb-8 px-6 py-2 border rounded" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
                     체험 시작하기
                 </button>

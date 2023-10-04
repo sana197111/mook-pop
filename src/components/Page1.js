@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { Link } from 'react-router-dom';
 import "./style.css";
 
 function Page1() {
@@ -47,6 +48,8 @@ function Page1() {
                 바쁘게 살고 있는 인생 중 5분의 공백의 시간을 통해<br/>
                 잠시 여유를 누리시면서 아무 생각없이<br/>
                 영감을 찾아 떠날 준비를 해봅시다.<br/>
+                <br/>
+                #휴식 <br/>
             </p>
             <button
                 className="mt-8 mb-8 px-6 py-2 border rounded"
@@ -59,7 +62,7 @@ function Page1() {
                 <CountdownCircleTimer
                     key={timeLeft}
                     isPlaying={isTimerActive}
-                    duration={5 * 60}
+                    duration={10}
                     colors={[["#A30000", 0.33], ["#F7B801", 0.33], ["#004777"]]}
                     size={100}
                     strokeWidth={12} // This controls the thickness of the circle.
@@ -79,7 +82,11 @@ function Page1() {
                         exit={{ opacity: 0 }}
                         style={{ color: "#d2d6d5" }}
                     >
-                        페이지2로 이동하세요
+                        <Link to="/page2">
+                            <button className="mt-8 mb-8 px-6 py-2 border rounded" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
+                                페이지2로 이동하세요
+                            </button>
+                        </Link>
                     </motion.p>
                 )}
             </AnimatePresence>
