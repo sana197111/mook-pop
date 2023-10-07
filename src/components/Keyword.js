@@ -3,6 +3,7 @@ import React from 'react';
 // import axios from 'axios';
 // import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import "./style.css";
 
 function Keyword() {
     // const { qrCode } = useParams();
@@ -68,19 +69,23 @@ function Keyword() {
             </p>
             <div className="flex flex-wrap justify-center space-x-4 space-y-2">
                 {keywords.map((keyword) => (
-                    <label key={keyword} className="flex items-center space-x-2">
-                        <input
-                            className="mr-1"
-                            type="radio"
-                            value={keyword}
-                            name="keyword"
-                            // checked={keyword1 === keyword}
-                            // onChange={() => setKeyword1(keyword)}
-                        /> 
-                        <span className="text-gray-700" style={{color: "#d2d6d5"}}>{keyword}</span>
+                    <label
+                    key={keyword}
+                    className="flex items-center justify-center px-3 py-2 space-x-2 border rounded-lg cursor-pointer hover:bg-gray-200"
+                    style={{color: "#d2d6d5"}}
+                    >
+                    <input
+                        className="mr-1 hidden"
+                        type="radio"
+                        value={keyword}
+                        name="keyword"
+                        // checked={keyword1 === keyword}
+                        // onChange={() => setKeyword1(keyword)}
+                    />
+                    <span className="flex-grow text-center" style={{color: "#d2d6d5"}}>{keyword}</span>
                     </label>
                 ))}
-            </div>
+                </div>
             <p className="text-center mb-4" style={{color: "#d2d6d5"}}>
                 <br/>
                 이 키워드는 당신의 이야기의 중심이 될 것입니다.<br/>
@@ -91,7 +96,7 @@ function Keyword() {
             </p>
             <Link to="/page3">
             <button
-                className="mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out"
+                className="mt-8 mb-12 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out"
                 style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}
             >
                 키워드 선택하고 Page3 이동하기

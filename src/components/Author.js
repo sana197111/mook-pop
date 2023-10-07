@@ -27,9 +27,9 @@ function Author() {
                 여정의 시작점에 오신 것을
             </h3>
             <p className="text-center mb-4" style={{ color: "#d2d6d5" }}>
-                작가님, 이제 귀하의 이야기가 시작됩니다.<br/>
-                첫 페이지의 주인공이 되어, 당신의 이야기를 우리와 함께 나누어주세요.<br/>
-                당신의 이름과 연락처를 통해 묵묵한 페이지와 연결되는 그 첫 단추를 잠가봅시다.<br/><br/>
+                작가님, 이제 귀하의 이야기가 시작됩니다.<br/><br/>
+                첫 페이지의 주인공이 되어, <br/>당신의 이야기를 우리와 함께 나누어주세요.<br/>
+                당신의 이름과 연락처를 통해 <br/>묵묵한 페이지와 연결되는 그 첫 단추를 잠가봅시다.<br/><br/>
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col items-center">
                 <label className="mb-3 text-center" htmlFor="name" style={{ color: "#d2d6d5" }}>
