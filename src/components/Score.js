@@ -54,7 +54,7 @@ function Score() {
     };    
 
     return (
-        <div className="p-4 md:p-6 bg-customGray text-customGreen overflow-y-auto max-h-screen flex flex-col items-center">
+        <div className="p-4 md:p-6 bg-customGray text-customGreen overflow-y-auto max-h-screen flex flex-col items-center justify-center">
             <h1 className="text-xl md:text-3xl mb-10">내가 에세이 작가였다면?</h1>
             {selectedQuestions.map((question, index) => (
                 <div key={index} className="mb-4 w-full md:w-1/2">

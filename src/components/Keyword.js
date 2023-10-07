@@ -47,7 +47,7 @@ function Keyword() {
     // }
 
     return (
-        <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center" style={{backgroundColor: "#514d4c"}}>
+        <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center justify-center" style={{backgroundColor: "#514d4c"}}>
             <h3 className="mb-4 text-center text-2xl" style={{color: "#d2d6d5"}}>
                 Page 2.
             </h3>
@@ -85,7 +85,7 @@ function Keyword() {
                     <span className="flex-grow text-center" style={{color: "#d2d6d5"}}>{keyword}</span>
                     </label>
                 ))}
-                </div>
+            </div>
             <p className="text-center mb-4" style={{color: "#d2d6d5"}}>
                 <br/>
                 이 키워드는 당신의 이야기의 중심이 될 것입니다.<br/>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Page3() {
     return (
-        <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center" style={{backgroundColor: "#514d4c"}}>
+        <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center justify-center" style={{backgroundColor: "#514d4c"}}>
             <h3 className="mb-4 text-center text-2xl" style={{color: "#d2d6d5"}}>
                 Page 3.
             </h3>
@@ -14,16 +14,16 @@ function Page3() {
                 [ 文章 ]
             </h5>
             <p className="text-center mb-4" style={{color: "#d2d6d5"}}>
-            당신이 선택한 키워드는 [선택한 키워드 입력]. <br/>
-            이 단어는 당신의 여정에서 중요한 역할을 했습니다.  <br/>
-            실패의 순간, 이 키워드는 어떻게 당신에게 작용했나요?<br/><br/>
-            그리고 어떻게 당신은 이를 극복하려 했나요? <br/><br/>
-            극복은 결코 쉽지 않은 일입니다.<br/>
-            그 과정에서 우리는 스스로를 더 많이 알게 되며, 또한 우리를 키워주는 중요한 교훈들을 얻게 됩니다.<br/>
-            그렇기에 여기에서 당신의 극복 이야기를 나누고자 합니다.<br/><br/>
-            키워드 [선택한 키워드 입력]에 관한 당신만의 이야기를 들려주세요.<br/>
-            그 이야기가 다른 이들에게 어떤 희망과 용기를 줄 수 있을지 기대합니다.<br/><br/>
-            #극복 <br/>
+            당신이 선택한 키워드는 [선택한 키워드 입력]. <br/><br/>
+            '어떤 걸 쓸지 너무 막막하다면..?<br/>
+            나만의 개성을 찾으실 수 있을 겁니다.<br/><br/>
+            무언가를 굉장히 좋아하거나<br/><br/>
+            무언가를 굉장히 싫어하거나<br/>
+            시간을 많이 써서 남들보다 잘 알게 된 것을<br/>
+            마음 질문 카드의 질문에 답을 하시다 보면<br/><br/>
+            나만의 개성이 드러나는<br/>
+            글감이 될 겁니다.<br/><br/>
+            #극복 #Overcome #마음질문 #구체화<br/>
             </p>
             <Link to="/sentense">
                 <button className="mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
