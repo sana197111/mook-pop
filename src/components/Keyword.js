@@ -46,7 +46,7 @@ function Keyword() {
     // }
 
     return (
-        <div className="min-h-screen p-4 flex flex-col items-center justify-center" style={{backgroundColor: "#514d4c"}}>
+        <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center" style={{backgroundColor: "#514d4c"}}>
             <h3 className="mb-4 text-center text-2xl" style={{color: "#d2d6d5"}}>
                 Page 2.
             </h3>
@@ -90,15 +90,14 @@ function Keyword() {
                 <br/>
             </p>
             <Link to="/page3">
-                <button
-                    className="mt-8 mb-8 px-6 py-2 border rounded"
-                    style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}
-                    // onClick={startTimer}
-                >
-                    키워드 선택하고 Page3 이동하기
-                </button>
-            </Link>
-        </div>
+            <button
+                className="mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out"
+                style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}
+            >
+                키워드 선택하고 Page3 이동하기
+            </button>
+        </Link>
+    </div>
             // <button 
             //     onClick={handleSubmit} 
             //     className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow"
