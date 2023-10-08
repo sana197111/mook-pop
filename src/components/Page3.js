@@ -14,7 +14,7 @@ function Page3() {
                 [ 文章 ]
             </h5>
             <p className="text-center mb-4" style={{color: "#d2d6d5"}}>
-            당신이 선택한 키워드는 <span className="text-customYellow">[선택한 키워드 입력].</span><br/><br/>
+            {/* 당신이 선택한 키워드는 <span className="text-customYellow">[선택한 키워드 입력].</span><br/><br/> */}
             <span className="text-customYellow">'어떤 걸 쓸지 너무 막막하다면..?</span><br/>
             나만의 개성을 찾으실 수 있을 겁니다.<br/><br/>
             무언가를 굉장히 좋아하거나<br/><br/>

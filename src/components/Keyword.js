@@ -25,6 +25,8 @@ function Keyword() {
             const response = await axios.post("/api/keyword/submit", {
                 keyword: formData.keyword,
                 // 여기에 필요하다면 name과 phoneNumber도 포함시킬 수 있습니다.
+            }, {
+                withCredentials: true  // 이 줄을 추가합니다.
             });
             alert(response.data.message);
             navigate('/page3');
