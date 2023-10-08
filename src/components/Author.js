@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Author() {
     const [formData, setFormData] = useState({
@@ -7,18 +8,41 @@ function Author() {
         phoneNumber: ''
     });
 
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value
         });
+        setError(null);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // 여기서 백엔드로 formData를 보내거나 다른 액션을 취합니다.
-    }
+
+        // 추가: 입력 유효성 검사
+        if (!formData.name.trim() || !formData.phoneNumber.trim()) {
+            setError("이름과 전화번호를 입력해주세요."); // 사용자에게 오류 메시지 표시
+            return; // 함수 종료
+        }
+
+        try {
+            const response = await axios.post("/api/author/submit", {
+                name: formData.name,
+                phoneNumber: formData.phoneNumber
+            });
+            alert(response.data.message);
+            // 여기서 페이지 이동을 합니다. Navigate 컴포넌트가 아닌, 함수를 사용합니다.
+            navigate('/page1');
+        } catch (error) {
+            console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
+            setError("오류가 발생했습니다. 다시 한번 시도해주세요.");
+        }
+    };
+    
 
     return (
         <div className="min-h-screen overflow-y-auto max-h-screen p-4 flex flex-col items-center justify-center" style={{ backgroundColor: "#514d4c" }}>
@@ -41,11 +65,16 @@ function Author() {
                     이야기를 나눌 수 있는 <span className="text-customYellow">연락처</span>를 입력해주세요.
                 </label>
                 <input type="text" id="phoneNumber" name="phoneNumber" onChange={handleInputChange} className="mb-8 p-2 border rounded" style={{ borderColor: "#d2d6d5", color: "#d2d6d5", backgroundColor: "#514d4c" }}/>
-                <Link to="/page1">
-                    <button type="submit" className="mt-8 mb-4 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
-                        여정 시작하기
-                    </button>
-                </Link>
+                {error && (
+                    <p className="mb-4 text-red-500">{error}</p>
+                )}
+                <button 
+                    type="submit" 
+                    className="mt-8 mb-4 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
+                    style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}
+                >
+                    여정 시작하기
+                </button>
             </form>
             <p className="text-center" style={{ color: "#d2d6d5", fontSize: "0.8rem" }}>
                 귀하의 개인 정보는 안전하게 보호되며, <br/>이를 통해 저희는 작가님과 소중한 이야기를 나누게 됩니다.

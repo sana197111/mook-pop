@@ -1,50 +1,37 @@
-import React from 'react';
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import { useParams, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import "./style.css";
 
 function Keyword() {
-    // const { qrCode } = useParams();
-    // const [userId, setUserId] = useState("");
-    // const [name, setName] = useState("");
-    // const [keyword1, setKeyword1] = useState("");
     const keywords = ["자존감", "인간관계", "성장", "행복", "노력", "사랑", "연애", "신뢰", "건강한 삶", "성취", "합격"];
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     // 페이지 로드 시 데이터 가져오기
-    //     const fetchData = async () => {
-    //         if(qrCode) {  // qrCode가 정의되어 있을 때만 요청을 보냅니다.
-    //             try {
-    //                 const response = await axios.get(`/api/get_data/${qrCode}`);
-    //                 setName(response.data.name);
-    //                 setKeyword1(response.data.keyword1);
-    //                 setUserId(response.data.user_id);
-    //             } catch (error) {
-    //                 console.error("Error fetching data", error);
-    //             }
-    //         }
-    //     };
-    //     fetchData();
-    // }, [qrCode]);
-    
-    
-    // const handleSubmit = async () => {
-    //     try {
-    //         const response = await axios.post("/api/keyword/submit", {
-    //             qr_code: qrCode,
-    //             name: name,
-    //             keyword1: keyword1
-    //         });
-    //         alert(response.data.message);
-    //         // 요청이 성공하면 /Page2로 이동합니다.
-    //         navigate('/Page3');
-    //     } catch (error) {
-    //         console.error("Error submitting data", error);
-    //     }
-    // }
+    const [formData, setFormData] = useState({
+        keyword: null,
+    });
+
+    const handleKeywordChange = (e) => {
+        // 키워드 선택 시 formData를 업데이트합니다.
+        setFormData({
+            ...formData,
+            keyword: e.target.value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("/api/keyword/submit", {
+                keyword: formData.keyword,
+                // 여기에 필요하다면 name과 phoneNumber도 포함시킬 수 있습니다.
+            });
+            alert(response.data.message);
+            navigate('/page3');
+        } catch (error) {
+            console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
+        }
+    };
 
     return (
         <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center justify-center" style={{backgroundColor: "#514d4c"}}>
@@ -74,14 +61,14 @@ function Keyword() {
                     className="flex items-center justify-center px-3 py-2 space-x-2 border rounded-lg cursor-pointer hover:bg-gray-200"
                     style={{color: "#d2d6d5"}}
                     >
-                    <input
-                        className="mr-1 hidden"
-                        type="radio"
-                        value={keyword}
-                        name="keyword"
-                        // checked={keyword1 === keyword}
-                        // onChange={() => setKeyword1(keyword)}
-                    />
+                        <input
+                            className="mr-1 hidden"
+                            type="radio"
+                            value={keyword}
+                            name="keyword"
+                            onChange={handleKeywordChange} // 상태를 업데이트하는 핸들러를 추가합니다.
+                            // onChange={() => setKeyword1(keyword)}
+                        />
                     <span className="flex-grow text-center" style={{color: "#d2d6d5"}}>{keyword}</span>
                     </label>
                 ))}
@@ -94,14 +81,14 @@ function Keyword() {
                 선택한 키워드와 함께, 당신의 이야기가 어떻게 전개될지 기대가 됩니다.<br/>
                 <br/> */}
             </p>
-            <Link to="/page3">
+
             <button
+                onClick={handleSubmit}
                 className="mt-8 mb-12 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out"
                 style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}
             >
                 키워드 선택하고 Page3 이동하기
             </button>
-        </Link>
     </div>
             // <button 
             //     onClick={handleSubmit} 
