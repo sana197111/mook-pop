@@ -26,7 +26,7 @@ function Page2() {
             <span className="text-customYellow">#실패 #Fail #글감 #실패는_성공의_어머니</span><br/>
             </p>
             <Link to="/keyword">
-                <button className="mt-8 mb-12 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
+                <button className="mt-8 mb-20 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
                     키워드 입력하러가기
                 </button>
             </Link>

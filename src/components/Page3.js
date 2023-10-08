@@ -26,7 +26,7 @@ function Page3() {
             <span className="text-customYellow">#극복 #Overcome #마음질문 #구체화</span><br/>
             </p>
             <Link to="/sentense">
-                <button className="mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
+                <button className="mt-8 mb-20 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
                     문장 입력하러가기
                 </button>
             </Link>

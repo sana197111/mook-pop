@@ -54,8 +54,11 @@ function Score() {
     };    
 
     return (
-        <div className="p-20 md:p-12 text-customGreen min-h-screen overflow-y-auto max-h-screen flex flex-col items-center">
-            <h1 className="text-xl md:text-3xl mb-10 mt-14">내가 에세이 작가였다면?</h1>
+        <div className="p-10 md:p-12 text-customGreen min-h-screen overflow-y-auto max-h-screen flex flex-col items-center">
+            <h1 className="text-2xl md:text-3xl mb-10 mt-14">내가 에세이 작가였다면?</h1>
+            <p className="text-center mb-10" style={{ color: "#d2d6d5", fontSize: "0.8rem" }}>
+                <span className="text-customYellow">1. 전혀 그렇지 않다   2. 대체로 그렇지 않다   <br/>3. 보통이다   4. 대체로 그렇다  5. 매우 그렇다</span>
+            </p>
             {selectedQuestions.map((question, index) => (
                 <div key={index} className="mb-4 w-full md:w-1/2">
                     <p className="mb-3">{index + 1}번. {question.text}</p>
@@ -74,7 +77,7 @@ function Score() {
             ))}
             <Link to="/result">
                 <button 
-                    className="mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}
+                    className="mt-8 mb-20 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}
                     onClick={handleSubmit}
                 >
                     제출하기
