@@ -38,13 +38,15 @@ function Score() {
             });
 
             console.log("Sums: ", sums);
+            
+            navigate('/result', { state: { sums } });
 
             // axios를 사용하여 서버에 점수를 제출합니다.
             axios.post('/api/score/submit', sums)
                 .then(response => {
                     console.log('Success:', response.data);
                     // navigate 함수를 사용하여 결과 페이지로 이동합니다.
-                    navigate('/result');
+                    // navigate('/result');
                 })
                 .catch(error => {
                     console.error('Error:', error);
