@@ -66,8 +66,8 @@ function Sentense() {
     // const [question, setQuestion] = useState(null);
 
     return (
-        <div className="min-h-screen overflow-y-auto max-h-screen p-4 flex flex-col items-center justify-center" style={{backgroundColor: "#514d4c"}}>
-            <h3 className="mb-4 text-center text-2xl" style={{color: "#d2d6d5"}}>
+        <div className="min-h-screen overflow-y-auto max-h-screen p-4 flex flex-col items-center" style={{backgroundColor: "#514d4c"}}>
+            <h3 className="mb-4 text-center text-2xl mt-14" style={{color: "#d2d6d5"}}>
                 Page 3.
             </h3>
             <h1 className="mb-4 text-center text-6xl" style={{color: "#d2d6d5"}}>
@@ -77,9 +77,8 @@ function Sentense() {
                 [ 文章 ]
             </h5>
             <p className="text-center mb-4" style={{color: "#d2d6d5"}}>
-            당신의 이야기는 소중합니다. <br/>
-            지금까지의 여정에서 겪은 실패, 그리고 그것을 극복하기 위해 했던 노력.<br/>
-            그 과정에서 느꼈던 감정과 생각들을 용기 있게 나눠주실 수 있나요?<br/><br/>
+            지금까지의 여정에서 겪은 실패, <br/>그리고 그것을 극복하기 위해 했던 노력.<br/><br/>
+            그 과정에서 느꼈던 <span className="text-customYellow">감정과 생각</span>들을<br/>용기 있게 나눠주실 수 있나요?<br/><br/>
             아래의 질문에 답해주세요.<br/><br/>
             </p>
             {/* <p className="text-md text-gray-700 font-semibold">{keyword1}</p> */}

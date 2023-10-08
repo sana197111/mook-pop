@@ -54,8 +54,8 @@ function Score() {
     };    
 
     return (
-        <div className="p-4 md:p-6 bg-customGray text-customGreen overflow-y-auto max-h-screen flex flex-col items-center justify-center">
-            <h1 className="text-xl md:text-3xl mb-10">내가 에세이 작가였다면?</h1>
+        <div className="p-20 md:p-12 text-customGreen min-h-screen overflow-y-auto max-h-screen flex flex-col items-center">
+            <h1 className="text-xl md:text-3xl mb-10 mt-14">내가 에세이 작가였다면?</h1>
             {selectedQuestions.map((question, index) => (
                 <div key={index} className="mb-4 w-full md:w-1/2">
                     <p className="mb-3">{index + 1}번. {question.text}</p>
@@ -63,7 +63,7 @@ function Score() {
                         {[1, 2, 3, 4, 5].map((score) => (
                             <button 
                                 key={score} 
-                                className={`p-2 m-1 text-lg ${scores[index] === score ? 'bg-blue-500' : 'bg-gray-700'}`}
+                                className={`mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out ${scores[index] === score ? 'bg-customYellow' : ''}`}
                                 onClick={() => handleScoreChange(index, score)}
                             >
                                 {score}

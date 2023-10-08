@@ -31,8 +31,8 @@ function Page1() {
     }, [timeLeft]);
     
     return (
-        <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center justify-center" style={{backgroundColor: "#514d4c"}}>
-            <h3 className="mb-4 text-center text-2xl" style={{color: "#d2d6d5"}}>
+        <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center" style={{backgroundColor: "#514d4c"}}>
+            <h3 className="mb-4 text-center text-2xl mt-14" style={{color: "#d2d6d5"}}>
                 Page 1.
             </h3>
             <h1 className="mb-4 text-center text-6xl" style={{color: "#d2d6d5"}}>
@@ -43,13 +43,13 @@ function Page1() {
             </h5>
             <p className="text-center mb-4" style={{color: "#d2d6d5"}}>
                 에세이 체험을 하기 전, <br/>
-                생각과 마음을 비워보며 휴식을 가져보세요.<br/><br/>
+                생각과 마음을 비워보며 <span className="text-customYellow">휴식</span>을 가져보세요.<br/><br/>
                 지금부터는 핸드폰을 잠시 멀리하시고 <br/>
-                바쁘게 살고 있는 인생 중 5분의 공백의 시간을 통해<br/>
-                잠시 여유를 누리시면서 아무 생각없이<br/>
-                영감을 찾아 떠날 준비를 해봅시다.<br/>
+                바쁘게 살고 있는 인생 중 5분의 <span className="text-customYellow">공백의 시간</span>을 통해<br/>
+                잠시 <span className="text-customYellow">여유</span>를 누리시면서 아무 생각없이<br/>
+                <span className="text-customYellow">영감</span>을 찾아 떠날 준비를 해봅시다.<br/>
                 <br/>
-                #휴식 #Rest #명상 #비워내기<br/>
+                <span className="text-customYellow">#휴식 #Rest #명상 #비워내기</span><br/>
             </p>
             <button
                 className="mt-8 mb-8 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
