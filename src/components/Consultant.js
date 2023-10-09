@@ -8,7 +8,7 @@ function Consultant() {
         // 서버로부터 데이터 가져오기
         const fetchData = async () => {
             try {
-                const response = await fetch('/getRecentData');
+                const response = await fetch('/api/getRecentData');
                 if (!response.ok) {
                     throw new Error('Network response was not ok' + response.statusText);
                 }
@@ -24,10 +24,10 @@ function Consultant() {
     return (
         <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center" style={{backgroundColor: "#514d4c"}}>
             <h3 className="mb-4 text-center text-2xl mt-14" style={{color: "#d2d6d5"}}>
-                Page 1.
+                대상자한테는 보여주지 마세요!
             </h3>
             <h1 className="mb-4 text-center text-6xl" style={{color: "#d2d6d5"}}>
-                공백
+                상담사 페이지
             </h1>
             {/* 여기부터 데이터를 보여주는 UI 구성 */}
             {data.map((item, index) => (
