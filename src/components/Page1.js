@@ -2,13 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import { Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import "./style.css";
 
 function Page1() {
     const [timeLeft, setTimeLeft] = useState(5 * 60);
     const [showNextPageMessage, setShowNextPageMessage] = useState(false);
     const [isTimerActive, setIsTimerActive] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { formData } = location.state || {};
 
     const renderTime = ({ remainingTime }) => (
         <div className="time-wrapper">
@@ -17,6 +21,16 @@ function Page1() {
             </div>
         </div>
     );
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            navigate('/page2', { state: { formData } });
+            console.log(formData)
+        } catch (error) {
+            console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
+        }
+    };
     
     const startTimer = () => {
         setTimeLeft(5 * 60);
@@ -59,11 +73,13 @@ function Page1() {
                             exit={{ opacity: 0 }}
                             style={{ color: "#d2d6d5" }}
                         >
-                            <Link to="/page2">
-                                <button className="mt-8 mb-20 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
-                                    페이지2로 이동하세요
-                                </button>
-                            </Link>
+                            <button 
+                                className="mt-8 mb-20 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
+                                style={{ color: "#d2d6d5", borderColor: "#d2d6d5"}}
+                                onClick={handleSubmit}
+                            >
+                                페이지2로 이동하세요
+                            </button>
                         </motion.p>
                 )}
                 <CountdownCircleTimer
@@ -90,6 +106,9 @@ function Page1() {
             >
                 시작하기
             </button>
+            <div
+                className="mt-8 mb-8"
+            ></div>
         </div>
     );
 }

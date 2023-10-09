@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import questions from "./BookTestQuestions";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Score() {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
     const [scores, setScores] = useState(Array(27).fill(null));
     const navigate = useNavigate();
+    const location = useLocation();
+    const { locationFormData, selectedKeyword, card_ans } = location.state || {};
 
     useEffect(() => {
     setSelectedQuestions(shuffleArray(questions).slice(0, 27));
@@ -39,14 +41,19 @@ function Score() {
 
             console.log("Sums: ", sums);
             
-            navigate('/result', { state: { sums } });
-
-            // axios를 사용하여 서버에 점수를 제출합니다.
-            axios.post('/api/score/submit', sums)
+            // Collect all the data to be sent to the server
+            const payload = {
+                ...sums,
+                locationFormData,
+                selectedKeyword,
+                card_ans
+            };
+            
+            // Send all data to the server
+            axios.post('/api/score/submit', payload)
                 .then(response => {
                     console.log('Success:', response.data);
-                    // navigate 함수를 사용하여 결과 페이지로 이동합니다.
-                    // navigate('/result');
+                    navigate('/result', { state: { sums } });
                 })
                 .catch(error => {
                     console.error('Error:', error);

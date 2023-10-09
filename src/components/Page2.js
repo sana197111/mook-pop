@@ -1,7 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function Page2() {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { formData } = location.state || {};
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            navigate('/keyword', { state: { formData } });
+            console.log(formData)
+        } catch (error) {
+            console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
+        }
+    };
+
     return (
         <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center" style={{backgroundColor: "#514d4c"}}>
             <h3 className="mb-4 text-center text-2xl mt-14" style={{color: "#d2d6d5"}}>
@@ -25,11 +41,16 @@ function Page2() {
             <br/><br/>
             <span className="text-customYellow">#실패 #Fail #글감 #실패는_성공의_어머니</span><br/>
             </p>
-            <Link to="/keyword">
-                <button className="mt-8 mb-20 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}>
-                    키워드 입력하러가기
-                </button>
-            </Link>
+            <button 
+                className="mt-8 mb-20 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
+                style={{ color: "#d2d6d5", borderColor: "#d2d6d5" }}
+                onClick={handleSubmit}
+            >
+                키워드 입력하러가기
+            </button>
+            <div
+                className="mt-8 mb-8"
+            ></div>
         </div>
     );
 }

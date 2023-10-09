@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { QUESTIONS } from './questions';
 
 function Sentense() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const { formData: locationFormData, selectedKeyword } = location.state || {};
+    console.log("Location Form Data: ", locationFormData);
+    console.log("Selected Keyword: ", selectedKeyword);
 
     const [formData, setFormData] = useState({
         selectedQuestion: QUESTIONS[0],  // 기본으로 첫 번째 질문 선택
@@ -29,7 +33,7 @@ function Sentense() {
                 withCredentials: true  // 이 줄을 추가합니다.
             });
             alert(response.data.message);
-            navigate('/page4');
+            navigate('/page4', { state: { locationFormData, selectedKeyword, card_ans: formData.card_ans } });
         } catch (error) {
             console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
         }
@@ -79,7 +83,11 @@ function Sentense() {
             >
                 페이지4로 이동하기
             </button>
+            <div
+                className="mt-8 mb-8"
+            ></div>
         </div>
+        
     );
 }
 

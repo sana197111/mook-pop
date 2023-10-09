@@ -36,7 +36,7 @@ function Author() {
             });
             alert(response.data.message);
             // 여기서 페이지 이동을 합니다. Navigate 컴포넌트가 아닌, 함수를 사용합니다.
-            navigate('/page1');
+            navigate('/page1', { state: { formData } });
         } catch (error) {
             console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
             setError("오류가 발생했습니다. 다시 한번 시도해주세요.");

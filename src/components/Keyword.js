@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import "./style.css";
 
 function Keyword() {
     const keywords = ["자존감", "인간관계", "성장", "행복", "노력", "사랑", "연애", "신뢰", "건강한 삶", "성취", "합격"];
     const navigate = useNavigate();
+    const location = useLocation();
+    const { formData: initialFormData } = location.state || {};
 
     const [formData, setFormData] = useState({
-        keyword: null,
+        keyword: initialFormData?.keyword || null,
     });
-
+    
     const handleKeywordChange = (e) => {
         // 키워드 선택 시 formData를 업데이트합니다.
         setFormData({
@@ -29,7 +31,7 @@ function Keyword() {
                 withCredentials: true  // 이 줄을 추가합니다.
             });
             alert(response.data.message);
-            navigate('/page3');
+            navigate('/page3', { state: { formData, selectedKeyword: formData.keyword } });
         } catch (error) {
             console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
         }
@@ -56,11 +58,11 @@ function Keyword() {
                 {/* 당신의 실패, 성공, 그리고 그 사이의 여정을 가장 잘 표현하는 단어를 선택해보세요.<br/> */}
                 <br/>
             </p>
-            <div className="flex flex-wrap justify-center space-x-4 space-y-2">
+            <div className="flex flex-wrap justify-center space-x-2 space-y-2">
                 {keywords.map((keyword) => (
                     <label
                     key={keyword}
-                    className="flex items-center justify-center px-3 py-2 space-x-2 border rounded-lg cursor-pointer hover:bg-gray-200"
+                    className="flex items-center justify-center px-2 py-2 border rounded-lg cursor-pointer hover:bg-gray-200"
                     style={{color: "#d2d6d5"}}
                     >
                         <input
@@ -91,6 +93,9 @@ function Keyword() {
             >
                 키워드 선택하고 Page3 이동하기
             </button>
+            <div
+                className="mt-8 mb-8"
+            ></div>
     </div>
             // <button 
             //     onClick={handleSubmit} 
