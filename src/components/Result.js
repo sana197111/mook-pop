@@ -34,19 +34,22 @@ function Result() {
             navigate('/score');
             return;
         }
-
+    
         const sums = location.state.sums;
-
-        // Find the index of the max score
-        let maxIndices = Object.keys(sums).filter((a, b) => sums[a] === sums[b]);
-
+    
+        // 최대 점수를 찾습니다.
+        const maxScore = Math.max(...Object.values(sums));
+    
+        // 최대 점수와 동일한 점수를 가진 인덱스를 찾습니다.
+        const maxIndices = Object.keys(sums).filter(key => sums[key] === maxScore);
+    
         // 랜덤으로 하나의 인덱스를 선택합니다.
-        let randomIndex = maxIndices[Math.floor(Math.random() * maxIndices.length)];
-
+        const randomIndex = maxIndices[Math.floor(Math.random() * maxIndices.length)];
+    
         // Set the type state
-        setType(parseInt(randomIndex.replace('score', '')));
+        setType(parseInt(randomIndex));
     }, [location, navigate]); // navigate를 의존성 배열에 추가합니다.
-
+    
     return (
         <div className="min-h-screen p-4 overflow-y-auto max-h-screen flex flex-col items-center" style={{backgroundColor: "#514d4c"}}>
             <img src={typeImages[type]} alt={`Type ${type}`} className="object-contain" />
