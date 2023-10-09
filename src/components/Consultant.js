@@ -31,16 +31,17 @@ function Consultant() {
             </h1>
             {/* 여기부터 데이터를 보여주는 UI 구성 */}
             {data.map((item, index) => (
-                <div key={index} className="dataItem">
-                    <h2>{item.name}</h2>
-                    <p>Phone Number: {item.phone_number}</p>
-                    <p>Keyword: {item.keyword1}</p>
-                    <p>Answer: {item.card_ans}</p>
-                    <p>Scores: {item.sorted_scores.map(score => (
-                        <span key={score[0]}> {score[0]}번({score[1]}점)</span>
-                    ))}</p>
-                </div>
-            ))}
+            <div key={index} className="dataItem p-4 m-4 bg-gray-800 text-white rounded-lg shadow-md">
+                <h2 className="text-2xl font-bold mb-2">{item.name}</h2>
+                <p className="mb-1">Phone Number: {item.phone_number}</p>
+                <p className="mb-1">Keyword: {item.keyword1}</p>
+                <p className="mb-1">Answer: {item.card_ans}</p>
+                <p className="mb-1">Scores: {item.sorted_scores.map(score => (
+                    <span key={score[0]} className="inline-block bg-gray-700 px-2 py-1 m-1 rounded-full">{score[0]}번({score[1]}점)</span>
+                ))}</p>
+            </div>
+))}
+
         </div>
     );
 }
