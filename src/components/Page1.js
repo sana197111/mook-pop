@@ -85,7 +85,7 @@ function Page1() {
                 <CountdownCircleTimer
                     key={timeLeft}
                     isPlaying={isTimerActive}
-                    duration={10}
+                    duration={3*60}
                     colors={[["#A30000", 0.33], ["#F7B801", 0.33], ["#004777"]]}
                     size={100}
                     strokeWidth={12} // This controls the thickness of the circle.
