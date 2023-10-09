@@ -14,6 +14,7 @@ import { Result } from './components/Result';
 import { Author } from './components/Author';
 import { Keyword } from './components/Keyword';
 import { Sentense } from './components/Sentense';
+import { Consultant } from './components/Consultant';
 import './styles.css';
 
 function App() {
@@ -46,6 +47,7 @@ function AppRoutes() {
         <Route path="/result/:qrCode" element={< QrResult />} />
         <Route path="/result" element={< Result />} />
         <Route path="/sentense" element={< Sentense />} />
+        <Route path="/consultant" element={< Consultant />} />
       </Routes>
     </PageTransition>
   );

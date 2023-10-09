@@ -7,6 +7,7 @@ function Keyword() {
     const navigate = useNavigate();
     const location = useLocation();
     const { formData: initialFormData } = location.state || {};
+    const [error, setError] = useState(null);
 
     const [formData, setFormData] = useState({
         keyword: initialFormData?.keyword || null,
@@ -18,10 +19,15 @@ function Keyword() {
             ...formData,
             keyword: e.target.value,
         });
+        setError(null);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!formData.keyword) { // 키워드가 선택되지 않았다면,
+            setError("키워드를 선택해주세요."); // 에러 상태를 업데이트합니다.
+            return; // 함수를 종료하고 이동하지 않습니다.
+        }
         try {
             navigate('/page3', { state: { initialFormData, selectedKeyword: formData.keyword } });
             console.log(initialFormData)
@@ -80,7 +86,9 @@ function Keyword() {
                 선택한 키워드와 함께, 당신의 이야기가 어떻게 전개될지 기대가 됩니다.<br/>
                 <br/> */}
             </p>
-
+            {error && (
+                <p className="mt-2 text-red-500">{error}</p>
+            )}
             <button
                 onClick={handleSubmit}
                 className="mt-8 mb-12 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out"

@@ -12,16 +12,23 @@ function Sentense() {
         card_ans: '',
     });
 
+    const [error, setError] = useState(null);
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value,
         });
+        setError(null);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!formData.card_ans) { // 키워드가 선택되지 않았다면,
+            setError("문장을 입력해주세요."); // 에러 상태를 업데이트합니다.
+            return; // 함수를 종료하고 이동하지 않습니다.
+        }
         try {
             navigate('/page4', { state: { initialFormData, selectedKeyword, card_ans: formData.card_ans } });
             console.log("Location Form Data: ", initialFormData);
@@ -69,6 +76,9 @@ function Sentense() {
                     placeholder="질문에 답을 해주세요."
                 />
             </div>
+            {error && (
+                <p className="mt-2 text-red-500">{error}</p>
+            )}
             <button 
                 onClick={handleSubmit}
                 className="mt-8 mb-20 px-6 py-2 border rounded hover:bg-gray-500 hover:text-white active:bg-gray-700 active:text-white transition duration-300 ease-in-out" 
