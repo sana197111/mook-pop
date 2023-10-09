@@ -6,13 +6,14 @@ function Page3() {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const { formData, selectedKeyword } = location.state || {};
+    const { initialFormData, selectedKeyword } = location.state || {};
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            navigate('/sentense', { state: { formData, selectedKeyword } });
-            console.log(formData)
+            navigate('/sentense', { state: { initialFormData, selectedKeyword } });
+            console.log(initialFormData)
+            console.log(selectedKeyword)
         } catch (error) {
             console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
         }

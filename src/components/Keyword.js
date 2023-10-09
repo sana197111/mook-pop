@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import "./style.css";
 
@@ -24,14 +23,10 @@ function Keyword() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("/api/keyword/submit", {
-                keyword: formData.keyword,
-                // 여기에 필요하다면 name과 phoneNumber도 포함시킬 수 있습니다.
-            }, {
-                withCredentials: true  // 이 줄을 추가합니다.
-            });
-            alert(response.data.message);
-            navigate('/page3', { state: { formData, selectedKeyword: formData.keyword } });
+            navigate('/page3', { state: { initialFormData, selectedKeyword: formData.keyword } });
+            console.log(initialFormData)
+            console.log(formData.keyword)
+            // console.log(selectedKeyword)
         } catch (error) {
             console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
         }

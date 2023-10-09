@@ -8,7 +8,7 @@ function Score() {
     const [scores, setScores] = useState(Array(27).fill(null));
     const navigate = useNavigate();
     const location = useLocation();
-    const { locationFormData, selectedKeyword, card_ans } = location.state || {};
+    const { initialFormData, selectedKeyword, card_ans } = location.state || {};
 
     useEffect(() => {
     setSelectedQuestions(shuffleArray(questions).slice(0, 27));
@@ -38,22 +38,23 @@ function Score() {
                 if (!sums[question.number]) sums[question.number] = 0;
                 sums[question.number] += scores[index];
             });
-
-            console.log("Sums: ", sums);
             
+            console.log("Sums: ", sums);
+            navigate('/result', { state: { sums } });
+
             // Collect all the data to be sent to the server
             const payload = {
                 ...sums,
-                locationFormData,
+                initialFormData,
                 selectedKeyword,
                 card_ans
             };
+            console.log(payload)
             
             // Send all data to the server
             axios.post('/api/score/submit', payload)
                 .then(response => {
                     console.log('Success:', response.data);
-                    navigate('/result', { state: { sums } });
                 })
                 .catch(error => {
                     console.error('Error:', error);

@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { QUESTIONS } from './questions';
 
 function Sentense() {
     const navigate = useNavigate();
     const location = useLocation();
-    const { formData: locationFormData, selectedKeyword } = location.state || {};
-    console.log("Location Form Data: ", locationFormData);
-    console.log("Selected Keyword: ", selectedKeyword);
+    const { initialFormData, selectedKeyword } = location.state || {};
 
     const [formData, setFormData] = useState({
         selectedQuestion: QUESTIONS[0],  // 기본으로 첫 번째 질문 선택
@@ -26,14 +23,10 @@ function Sentense() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("/api/card/submit", {
-                // question: formData.selectedQuestion,
-                card_ans: formData.card_ans,
-            }, {
-                withCredentials: true  // 이 줄을 추가합니다.
-            });
-            alert(response.data.message);
-            navigate('/page4', { state: { locationFormData, selectedKeyword, card_ans: formData.card_ans } });
+            navigate('/page4', { state: { initialFormData, selectedKeyword, card_ans: formData.card_ans } });
+            console.log("Location Form Data: ", initialFormData);
+            console.log("Selected Keyword: ", selectedKeyword);
+            console.log(formData.card_ans);
         } catch (error) {
             console.error("오류가 발생했습니다. 다시 한번 시도해주시길 바랍니다.", error);
         }

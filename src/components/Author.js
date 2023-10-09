@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,11 +29,6 @@ function Author() {
         }
 
         try {
-            const response = await axios.post("/api/author/submit", {
-                name: formData.name,
-                phoneNumber: formData.phoneNumber
-            });
-            alert(response.data.message);
             // 여기서 페이지 이동을 합니다. Navigate 컴포넌트가 아닌, 함수를 사용합니다.
             navigate('/page1', { state: { formData } });
         } catch (error) {
