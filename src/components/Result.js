@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useParams } from 'react';
+// import { useLocation, useNavigate } from 'react-router-dom';
 import type1 from './type/type1.png';
 import type2 from './type/type2.png';
 import type3 from './type/type3.png';
