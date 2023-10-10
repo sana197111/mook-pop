@@ -38,9 +38,17 @@ function Score() {
                 if (!sums[question.number]) sums[question.number] = 0;
                 sums[question.number] += scores[index];
             });
+
+            // 최고 점수를 계산합니다.
+            const maxScore = Math.max(...Object.values(sums));
             
-            console.log("Sums: ", sums);
-            navigate('/result', { state: { sums } });
+            // 최고 점수와 동일한 점수를 가진 질문 번호들을 찾습니다.
+            const maxScoreNumbers = Object.keys(sums).filter(number => sums[number] === maxScore);
+            
+            // 그 중 하나를 랜덤으로 선택합니다.
+            const randomIndex = maxScoreNumbers[Math.floor(Math.random() * maxScoreNumbers.length)];
+            
+            navigate(`/type${randomIndex}`, { state: { sums } });
 
             // Collect all the data to be sent to the server
             const payload = {
