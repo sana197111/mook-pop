@@ -1,4 +1,5 @@
-import React, { useParams } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 // import { useLocation, useNavigate } from 'react-router-dom';
 import type1 from './type/type1.png';
 import type2 from './type/type2.png';

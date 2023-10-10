@@ -45,7 +45,7 @@ function AppRoutes() {
         <Route path="/page2/:qrCode" element={< QrPage2 />} />
         <Route path="/page3/:qrCode" element={< QrPage3 />} />
         <Route path="/result/:qrCode" element={< QrResult />} />
-        <Route path="/type:typeNumber" element={<Result />} />
+        <Route path="/type/:typeNumber" element={< Result />} />
         <Route path="/sentense" element={< Sentense />} />
         <Route path="/consultant" element={< Consultant />} />
       </Routes>

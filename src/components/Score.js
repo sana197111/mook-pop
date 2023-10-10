@@ -48,7 +48,7 @@ function Score() {
             // 그 중 하나를 랜덤으로 선택합니다.
             const randomIndex = maxScoreNumbers[Math.floor(Math.random() * maxScoreNumbers.length)];
             
-            navigate(`/type${randomIndex}`, { state: { sums } });
+            navigate(`/type/${randomIndex}`, { state: { sums } });
 
             // Collect all the data to be sent to the server
             const payload = {
